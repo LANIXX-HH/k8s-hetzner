@@ -67,3 +67,45 @@ variable "kured_version" {
   type        = string
   default     = "1.15.0"
 }
+
+variable "traefik_version" {
+  description = "Traefik Helm chart version"
+  type        = string
+  default     = "v32.1.1"
+}
+
+variable "use_cluster_name_in_node_name" {
+  description = "Whether to use cluster name in node names"
+  type        = bool
+  default     = true
+}
+
+variable "automatically_upgrade_os" {
+  description = "Whether to automatically upgrade OS"
+  type        = bool
+  default     = false
+}
+
+variable "nginx_chart_repo" {
+  description = "Helm repository for nginx chart"
+  type        = string
+  default     = "https://charts.bitnami.com/bitnami"
+}
+
+variable "nginx_chart_name" {
+  description = "Nginx Helm chart name"
+  type        = string
+  default     = "nginx"
+}
+
+variable "nginx_namespace" {
+  description = "Kubernetes namespace for nginx"
+  type        = string
+  default     = "default"
+}
+
+variable "letsencrypt_server" {
+  description = "Let's Encrypt ACME server URL"
+  type        = string
+  default     = "https://acme-v02.api.letsencrypt.org/directory"
+}

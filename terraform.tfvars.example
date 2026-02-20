@@ -11,5 +11,19 @@ worker_count              = 3
 ssh_public_key_path       = "~/.ssh/id_rsa.pub"
 ssh_private_key_path      = "~/.ssh/id_rsa"
 
-ccm_version   = "v1.19.0"
-kured_version = "1.15.0"
+# Versions
+ccm_version           = "v1.19.0"
+kured_version         = "1.15.0"
+traefik_version       = "v32.1.1"
+
+# Cluster settings
+use_cluster_name_in_node_name = true
+automatically_upgrade_os      = false
+
+# Nginx settings
+nginx_chart_repo   = "https://charts.bitnami.com/bitnami"
+nginx_chart_name   = "nginx"
+nginx_namespace    = "default"
+
+# Let's Encrypt
+letsencrypt_server = "https://acme-v02.api.letsencrypt.org/directory"

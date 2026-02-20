@@ -64,14 +64,12 @@ module "kube-hetzner" {
 
   microos_x86_snapshot_id = trimspace(local_file.snapshot_id.content)
 
-  use_cluster_name_in_node_name = true
-  automatically_upgrade_os      = false
+  use_cluster_name_in_node_name = var.use_cluster_name_in_node_name
+  automatically_upgrade_os      = var.automatically_upgrade_os
 
   hetzner_ccm_version = var.ccm_version
   kured_version       = var.kured_version
-  
-  # Pin Traefik to compatible version
-  traefik_version = "v32.1.1"
+  traefik_version     = var.traefik_version
 
   control_plane_nodepools = [
     {
@@ -109,9 +107,9 @@ metadata:
   name: nginx-example
   namespace: kube-system
 spec:
-  chart: nginx
-  repo: https://charts.bitnami.com/bitnami
-  targetNamespace: default
+  chart: ${var.nginx_chart_name}
+  repo: ${var.nginx_chart_repo}
+  targetNamespace: ${var.nginx_namespace}
   valuesContent: |-
     service:
       type: ClusterIP
@@ -120,7 +118,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: nginx-example
-  namespace: default
+  namespace: ${var.nginx_namespace}
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-prod
     traefik.ingress.kubernetes.io/router.entrypoints: websecure
@@ -148,7 +146,7 @@ metadata:
   name: letsencrypt-prod
 spec:
   acme:
-    server: https://acme-v02.api.letsencrypt.org/directory
+    server: ${var.letsencrypt_server}
     email: ${var.letsencrypt_email}
     privateKeySecretRef:
       name: letsencrypt-prod
