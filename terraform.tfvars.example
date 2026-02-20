@@ -1,0 +1,15 @@
+hcloud_token      = "YOUR_HETZNER_API_TOKEN"
+nginx_domain      = "example.com"
+letsencrypt_email = "your-email@example.com"
+
+# Optional overrides
+location                  = "nbg1"
+control_plane_server_type = "cx23"
+control_plane_count       = 3
+worker_server_type        = "cx23"
+worker_count              = 3
+ssh_public_key_path       = "~/.ssh/id_rsa.pub"
+ssh_private_key_path      = "~/.ssh/id_rsa"
+
+ccm_version   = "v1.19.0"
+kured_version = "1.15.0"

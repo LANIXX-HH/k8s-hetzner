@@ -1,0 +1,12 @@
+terraform.tfvars
+*.tfstate
+*.tfstate.*
+.terraform/
+.terraform.lock.hcl
+kubeconfig.yaml
+packer/
+.packer.d/
+packer_cache/
+snapshot_id.txt
+terraform.tfvars
+k3s_kubeconfig.yaml
