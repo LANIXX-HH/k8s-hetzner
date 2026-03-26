@@ -43,7 +43,7 @@ resource "null_resource" "packer_build" {
   }
 
   triggers = {
-    packer_template = filemd5("${path.module}/packer/hcloud-microos-snapshots.pkr.hcl")
+    packer_template_url = "https://raw.githubusercontent.com/kube-hetzner/terraform-hcloud-kube-hetzner/master/packer-template/hcloud-microos-snapshots.pkr.hcl"
   }
   depends_on = [ local_file.snapshot_id ]
 }
