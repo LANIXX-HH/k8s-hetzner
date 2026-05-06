@@ -22,8 +22,7 @@
 			]
 		}
 	},
-"postCreateCommand": [
-	"wget https://github.com/hetznercloud/cli/releases/latest/download/hcloud-linux-amd64.tar.gz",
+"postCreateCommand": ["wget https://github.com/hetznercloud/cli/releases/latest/download/hcloud-linux-amd64.tar.gz",
 	"tar xvzf hcloud-linux-amd64.tar.gz && sudo mv hcloud /usr/local/bin/",
 	"wget https://releases.hashicorp.com/packer/1.10.0/packer_1.10.0_linux_amd64.zip", 
 	"unzip packer_1.10.0_linux_amd64.zip",
