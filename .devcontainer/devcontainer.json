@@ -2,7 +2,7 @@
 	"name": "K8s-Hetzner Cloud Architect Environment",
 	"image": "mcr.microsoft.com/devcontainers/base:ubuntu",
 	"features": {
-		"ghcr.io/devcontainers/features/docker-in-docker:1": {},
+		"ghcr.io/devcontainers/features/docker-in-docker:2.16.1": {},
 		"ghcr.io/devcontainers/features/terraform:1": {},
 		"ghcr.io/devcontainers/features/kubectl-helm-minikube:1": {
 			"version": "latest",
@@ -20,6 +20,12 @@
 			]
 		}
 	},
-	"postCreateCommand": "pip3 install hcloud && curl -sL https://raw.githubusercontent.com/hetznercloud/cli/master/install.sh | bash",
-	"remoteUser": "vscode"
+"postCreateCommand": [ "git clone --depth=1 https://github.com/tfutils/tfenv.git ~/.tfenv",
+	"echo 'export PATH=\"$HOME/.tfenv/bin:$PATH\"' >> ~/.bashrc",
+	"wget https://github.com/hetznercloud/cli/releases/latest/download/hcloud-linux-amd64.tar.gz",
+	"tar xvzf hcloud-linux-amd64.tar.gz && sudo mv hcloud /usr/local/bin/",
+	"wget https://releases.hashicorp.com/packer/1.10.0/packer_1.10.0_linux_amd64.zip", 
+	"unzip packer_1.10.0_linux_amd64.zip",
+	"sudo mv packer /usr/local/bin/ && rm packer_1.10.0_linux_amd64.zip'"],
+"remoteUser": "vscode"
 }
