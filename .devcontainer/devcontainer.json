@@ -21,10 +21,7 @@
 			]
 		}
 	},
-"postCreateCommand": ["wget https://github.com/hetznercloud/cli/releases/latest/download/hcloud-linux-amd64.tar.gz",
-	"tar xvzf hcloud-linux-amd64.tar.gz && sudo mv hcloud /usr/local/bin/",
-	"wget https://releases.hashicorp.com/packer/1.10.0/packer_1.10.0_linux_amd64.zip", 
-	"unzip packer_1.10.0_linux_amd64.zip",
-	"sudo mv packer /usr/local/bin/ && rm packer_1.10.0_linux_amd64.zip'"],
+"postCreateCommand": ["wget -O /tmp/hcloud.tar.gz https://github.com/hetznercloud/cli/releases/latest/download/hcloud-linux-amd64.tar.gz && tar xvzf /tmp/hcloud.tar.gz -C /tmp && sudo mv /tmp/hcloud /usr/local/bin/ && rm /tmp/hcloud.tar.gz",
+	"wget -O /tmp/packer.zip https://releases.hashicorp.com/packer/1.10.0/packer_1.10.0_linux_amd64.zip && unzip /tmp/packer.zip && sudo mv packer /usr/local/bin/ && rm /tmp/packer.zip'"],
 "remoteUser": "vscode"
 }
