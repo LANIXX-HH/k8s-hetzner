@@ -1,0 +1,25 @@
+{
+	"name": "K8s-Hetzner Cloud Architect Environment",
+	"image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+	"features": {
+		"ghcr.io/devcontainers/features/docker-in-docker:1": {},
+		"ghcr.io/devcontainers/features/terraform:1": {},
+		"ghcr.io/devcontainers/features/kubectl-helm-minikube:1": {
+			"version": "latest",
+			"helm": "latest"
+		},
+		"ghcr.io/devcontainers/features/python:1": {}
+	},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"hashicorp.terraform",
+				"ms-kubernetes-tools.vscode-kubernetes-tools",
+				"ms-azuretools.vscode-docker",
+				"ms-python.python"
+			]
+		}
+	},
+	"postCreateCommand": "pip3 install hcloud && curl -sL https://raw.githubusercontent.com/hetznercloud/cli/master/install.sh | bash",
+	"remoteUser": "vscode"
+}
