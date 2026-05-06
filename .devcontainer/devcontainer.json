@@ -8,7 +8,9 @@
 			"version": "latest",
 			"helm": "latest"
 		},
-		"ghcr.io/devcontainers/features/python:1": {}
+		"ghcr.io/devcontainers/features/python:1": {},
+		,
+		"ghcr.io/devcontainers/features/git:1": {}
 	},
 	"customizations": {
 		"vscode": {
@@ -20,8 +22,7 @@
 			]
 		}
 	},
-"postCreateCommand": [ "git clone --depth=1 https://github.com/tfutils/tfenv.git ~/.tfenv",
-	"echo 'export PATH=\"$HOME/.tfenv/bin:$PATH\"' >> ~/.bashrc",
+"postCreateCommand": [
 	"wget https://github.com/hetznercloud/cli/releases/latest/download/hcloud-linux-amd64.tar.gz",
 	"tar xvzf hcloud-linux-amd64.tar.gz && sudo mv hcloud /usr/local/bin/",
 	"wget https://releases.hashicorp.com/packer/1.10.0/packer_1.10.0_linux_amd64.zip", 
